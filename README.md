@@ -1,21 +1,54 @@
-# New Relic Handbook
+## New Relic Handbook.
 
-_**New Relic Handbook, what is that?**_
+### Introduction
 
-The New Relic Handbook we have created here is a template for you to take, and change to suit your needs. The goal here is for you to have a quick-start guide for your internal teams when they start to work with New Relic. This covers things from agent configuration, to alert notification settings. The important bases to cover for new people starting with New Relic. 
+As your digital business grows, your New Relic usage will likely grow with it. Often that means new business units in your organisation start to use New Relic, and they may turn to you for help with the set up of that. If that sounds like you then this handbook will likely help.
 
-As your business grows, your need for New Relic may grow too. New business units in your organisation will likely adopt New Relic and they may come to you for help. This Handbook is designed to allow you to support those teams in setting up New Relic quickly. 
+### What is the handbook?
 
-Now this is not a complete guide, this instead is a starting point for you to take and build on. You are the New Relic Expert in your company and so you are the best help your teams could get, and building out your own handbook will help to reduce the pain points in getting set up quickly in the beginning. 
+Our New Relic handbook is a template for you to build on. It features all the getting started basics, like defining a standard agent configuration, and detailing an Application Naming standard. A full table of contents is seen below: 
 
-_**What do I do with the handbook?**_
+* _**Home**_
+* _**Accounts and Users**_
+  * Account Naming
+  * User Permissions
+  * Security Considerations
+* _**Apps and Deploys**_
+  * Application Naming and Labelling
+  * Agent Configuration specification
+  * Keeping your agents up to date
+  * Deployment Markers
+  * Key Transactions
+* _**Alerts**_
+  * Recommended Alerts
+  * Notification Channels
+  * Incident Preference
+  * Defined SLA Metrics
+* _**Dashboards and Events**_
+  * Custom Attribute Formatting
+  * Sample Dashboards
+* _**Support**_
+  * Getting Help with New Relic
+  
 
-The Handbook comes in both HTML & Markdown formats, you can take both, or pick your preferred option. From there you can host this internally at your organisation, adjust the details to suit your company standards on security (SSO/etc..), or on notification settings. Essentially this is yours to define your own rules with New Relic. 
+### Why do we need a handbook?
+Since you are the New Relic Experts in your company, new NR users will likely come to you for help. Having guidelines right at the beginning of their journey will help you to ensure that as little as possible goes wrong in your accounts. 
 
-Defining a user structure with Admins / Users / Add-on Roles all being set appropriately will help to ensure that the right New Relic users in your company will have the ability to do what they need in New Relic when they need to do it. 
+_For Example; in our Support team we occasionally see requests for deleting personal accounts from a corporate master account. Specifically where a user at a company wanted to monitor their personal projects, so they added a sub-account to the company parent account. This can boost the company spend at NR by over-consuming the contracted usage limits._
 
-You’ll notice that in this handbook we use Slack as an example for reaching out to your company’s New Relic experts. That is you. The people who look to New Relic APM every day to solve performance problems, to peek into important business metrics in Insights, to verify your hosts are performing at an optimal level with infrastructure. You know New Relic better than most, and because of that, you’ll likely be turned to when new business units need to be onboarded with New Relic. This handbook is there to simplify that for you. 
+_Another example we see when talking to customers is that they want total visibility into the digital business. That is, they want to know about every business unit using New Relic in an organisation. If one service goes down, the potential for impact to a company, in revenue and in customer trust, is too great. And so a central team often wish for a way of enforcing that alert notifications from any of their sub-accounts come to a central address._
 
-_**I have suggestions of more to add to the handbook**_
+### How do you use the Handbook?
 
-Great! We’re happy to hear your suggestions! You can submit a PR if you want to add your own new sections, or leave a comment in a [Github issue](https://source.datanerd.us/rveitch/handbook/issues) on the repo if you have suggestions for us to work on. 
+Our handbook is provided in HTML & Markdown formats. You can clone our repo from github into your own environment & adopt the handbook to meet your own internal standards. 
+
+What you add to your handbook depends on your New Relic usage. If you're heavy Synthetics users for example, you may add a section on Synthetics Permissions and Secure Credentials. 
+Since we provide HTML & Markdown, you have a couple of options, but you are free to copy this into your preferred delivery method. 
+
+The way we went is to leave the handbook in github - since Github nicely formats Markdown, and can host HTML files via Github Pages, this works well for us.
+
+### What if our needs are completely different?
+
+That's fine! There are almost countless use cases for the New Relic Platform, like we said above you may be a Synthetics heavy company rather than APM. So while our template may not be best suited for your needs, it still is a good idea to document your getting started guides for the same reasons we have mentioned in the _'Why do we need a handbook'_ section.
+
+With all that said - we would love your help in building out our Handbook Template. If you think that the sections you add would be valuable to others, please feel free to submit a PR to our Repo. We can review and chat with you about whether or not we can add it to ours, with the goal of building out a larger 'master list' handbook. 
