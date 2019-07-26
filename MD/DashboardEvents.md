@@ -794,5 +794,5 @@ For additional reference:
 
 ---
 
-|[Home](https://source.datanerd.us/rveitch/handbook/MD/home.md)	|[Users & Roles](UsersAndRoles.md)	|[Apps & Deploys](Apps%26Deploys.md)	|[Recommended Alerts](Alerts.md)	|[Custom Data & Dashboards](DashboardEvents.md)	|  [Support](support.md) |
+|[Home](readme.md)	|[Users & Roles](UsersAndRoles.md)	|[Apps & Deploys](Apps%26Deploys.md)	|[Recommended Alerts](Alerts.md)	|[Custom Data & Dashboards](DashboardEvents.md)	|  [Support](support.md) |
 |:---:	|:---:	|:---:	|:---:	|:---:	|:---:	|
