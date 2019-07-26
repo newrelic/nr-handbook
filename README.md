@@ -24,6 +24,7 @@ With all that said - we would love your help in building out our Handbook Templa
 * The Handbook includes a 'Your Logo Here' Placeholder. This should be replaced with your company logo. 
 * The Handbook includes reference to a Slack channel called #new-relic-admins. This should be replaced with your preferred method of contact as the internal New Relic Experts in your company. 
 
+<hr/>
 
 * [HTML Version here](https://github.com/newrelic/nr-handbook/tree/master/HTML)
 * [Markdown version here](https://github.com/newrelic/nr-handbook/tree/master/MD)
