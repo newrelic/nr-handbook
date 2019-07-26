@@ -1,12 +1,12 @@
-<img src="https://newrelic.com/assets/newrelic/source/NewRelic-logo-square.png" alt="New Relic" width="100px">
+<img src="IMG/logo.png" alt="YourLogo" width="15%">
 
 
-# New Relic - Acme Corp Handbook.
+# Your Company - New Relic Handbook
 
 ## Application Naming Schema
 We will occasionally audit New Relic accounts. This audit will check for, among other things, account structures and application naming.
 
-Please ensure your applications are named appropriately. Your application names should include the service being monitored, the environment being monitored, and any additional detail, such as region/etc.. This blog post explains the use of great App Names. The format Acme Corp follows is:
+Please ensure your applications are named appropriately. Your application names should include the service being monitored, the environment being monitored, and any additional detail, such as region/etc.. This blog post explains the use of great App Names. The format Your Company follows is:
 
 > _Service Name - Environment - AdditionalDetail_
 

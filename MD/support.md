@@ -1,7 +1,7 @@
-<img src="https://newrelic.com/assets/newrelic/source/NewRelic-logo-square.png" alt="New Relic" width="100px">
+<img src="IMG/logo.png" alt="YourLogo" width="15%">
 
 
-# New Relic - Acme Corp Handbook.
+# Your Company - New Relic Handbook
 
 ## Support
 By now you have probably set up your New Relic account, and you may even have data reporting already, which is awesome! If not, or if you run into any issues along the way, that's OK too. Below are some available resourses for you to get help.

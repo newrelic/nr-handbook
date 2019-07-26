@@ -1,7 +1,7 @@
-<img src="https://newrelic.com/assets/newrelic/source/NewRelic-logo-square.png" alt="New Relic" width="100px">
+<img src="IMG/logo.png" alt="YourLogo" width="15%">
 
 
-# New Relic - Acme Corp Handbook.
+# Your Company - New Relic Handbook.
 
 ## Recommended Alerts
 Your monitoring requirements are different to others, that said, to ensure you get started successfully - it is recommended you have some basic alert conditions configured.
@@ -44,7 +44,7 @@ Read more on Incident Preference, and ensure you are set up correctly here: [Inc
 ---
 
 ## Defined SLA Metrics
-Based on the metrics you are alerting on, it is recommended that you set your own standards. Acme Corporation uses the following metrics to define our SLAs, which you can create an Insights dashboard to view
+Based on the metrics you are alerting on, it is recommended that you set your own standards. Your Company uses the following metrics to define our SLAs, which you can create an Insights dashboard to view
 
 **Uptime** 
 
@@ -63,7 +63,7 @@ SELECT average(duration)FROM Transaction WHERE appName = 'myAppName'SINCE 1 DAY 
 **Error Rate**
 * Monitored by APM & Browser
 
-These are the basic defaults Acme Corp recommends you use. That said, we recommend you add more metrics depending on the applications you are monitoring. For example, Storefront applications should send attributes mapping to revenue generation & potential for lost revenue.
+These are the basic defaults Your Company recommends you use. That said, we recommend you add more metrics depending on the applications you are monitoring. For example, Storefront applications should send attributes mapping to revenue generation & potential for lost revenue.
 
 For example, errors occuring on purchase pages can represent potential lost revenue. You should also utilise funnel queries to view cases where the shopping cart page was abandoned prior to purchase.
 

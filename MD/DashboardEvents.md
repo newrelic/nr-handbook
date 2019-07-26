@@ -1,10 +1,10 @@
-<img src="https://newrelic.com/assets/newrelic/source/NewRelic-logo-square.png" alt="New Relic" width="100px">
+<img src="IMG/logo.png" alt="YourLogo" width="15%">
 
 
-# New Relic - Acme Corp Handbook.
+# Your Company - New Relic Handbook
 
 ## Custom Attribute Formatting
-Acme Corporation requires that you follow some basic standards like below;
+Your Company requires that you follow some basic standards like below;
 
 * Take note of [reserved words and attribute limitations.](https://docs.newrelic.com/docs/insights/insights-data-sources/custom-data/insights-custom-data-requirements-limits)
 * Use [camelCase](https://simple.wikipedia.org/wiki/CamelCase) for your attribute names.

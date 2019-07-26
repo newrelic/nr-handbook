@@ -1,17 +1,16 @@
-<img src="https://newrelic.com/assets/newrelic/source/NewRelic-logo-square.png" alt="New Relic" width="100px">
+<img src="IMG/logo.png" alt="YourLogo" width="15%">
 
-
-# New Relic - Acme Corp Handbook.
+# Your Company - New Relic Handbook
 
 ## Account Naming and User Access:
 Reach out to the _@hero_ in the Slack Channel: _#new-relic-admins_ for help setting up your New Relic Account. We'll need the following info.
 
-* Account Name following the format: Acme Corp - YourTeamName
+* Account Name following the format: Your Company - YourTeamName
 * List users who should be on your account in a CSV file formatted like below:
 
 |  Email | Name  |  Base Role |  Add-On Roles
 |---|---|---|---
-|  user@acmecorp.com |  First Last | User  |  apm_admin, browser_admin 
+|  user@yourcompany.com |  First Last | User  |  apm_admin, browser_admin 
 
 
 With this information we will create the account you requested as a sub-account of CompanyName - Master Account. If you request an account - you will be made Admin of that account. It is your responsibility to manage user access beyond initial creation. With that said - please note that all users must be assigned the New Relic application in Okta. Reach out to the New Relic Admins team if any user cannot access New Relic.
