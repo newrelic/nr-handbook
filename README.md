@@ -4,6 +4,9 @@
 
 As your digital business grows, your New Relic usage will likely grow with it. Often that means new business units in your organisation start to use New Relic, and they may turn to you for help with the set up of that. If that sounds like you then this handbook will likely help.
 
+* [HTML Version here](https://github.com/newrelic/handbook/HTML)
+* [Markdown version here](https://github.com/newrelic/handbook/tree/master/MD)
+
 ## Usage
 How you use the handbook is up to you. We provide this as a pre-built template, however your New Relic account usage is likely different to the next person to read this. So we encourage you to build on this handbook, add sections that suit your usage. 
 For example; If you’re heavy Synthetics users for example, you may add a section on Synthetics Permissions and Secure Credentials.
