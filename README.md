@@ -18,5 +18,5 @@ The way we went is to leave the handbook in github - since github nicely formats
 
 With all that said - we would love your help in building out our Handbook Template. If you think that the sections you add to your own would be valuable to others, please feel free to submit a PR here. We can review and chat with you about whether or not we can add it to ours, with the goal of building out a larger 'master list' handbook.
 
-* [HTML Version here](https://github.com/newrelic/handbook/HTML)
-* [Markdown version here](https://github.com/newrelic/handbook/tree/master/MD)
+* [HTML Version here](https://github.com/newrelic/nr-handbook/tree/master/HTML)
+* [Markdown version here](https://github.com/newrelic/nr-handbook/tree/master/MD)
