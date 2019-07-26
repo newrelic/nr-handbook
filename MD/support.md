@@ -13,5 +13,5 @@ By now you have probably set up your New Relic account, and you may even have da
 
 ---
 
-|[Home](https://source.datanerd.us/rveitch/handbook/MD/home.md)	|[Users & Roles](UsersAndRoles.md)	|[Apps & Deploys](Apps%26Deploys.md)	|[Recommended Alerts](Alerts.md)	|[Custom Data & Dashboards](DashboardEvents.md)	|  [Support](support.md) |
+|[Home](readme.md)	|[Users & Roles](UsersAndRoles.md)	|[Apps & Deploys](Apps%26Deploys.md)	|[Recommended Alerts](Alerts.md)	|[Custom Data & Dashboards](DashboardEvents.md)	|  [Support](support.md) |
 |:---:	|:---:	|:---:	|:---:	|:---:	|:---:	|
