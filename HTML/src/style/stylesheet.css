@@ -1,0 +1,207 @@
+body {
+  width: 74%;
+  font-family: Open Sans, Serif;
+  background-color: #efefef;
+  color: black;
+  padding-left: 13%;
+  padding-bottom: 6%;
+}
+
+
+/*-- LOGO CENTERING --*/
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.main {
+  margin-bottom: 1%;
+  /* Add a top margin to avoid content overlay */
+}
+
+
+/* MENUBAR */
+
+.menuBar ul {
+  width: 74%;
+  max-height: 50px;
+  position: fixed;
+  bottom: 0;
+  overflow: hidden;
+  text-align: center;
+  list-style-type: none;
+  margin: 0;
+  box-align: center;
+  padding: 0;
+  background-color: #dedede;
+  border: 1px solid #003366;
+  overflow: auto;
+  white-space: nowrap;
+  overflow-y: none;
+}
+
+.menuBar li {
+  float: left;
+  list-style-type: none;
+}
+
+.menuBar li a {
+  display: inline-block;
+  color: #003366;
+  background-color: #dedede;
+  font-weight: bold;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.menuBar li a:hover {
+  background-color: #003366;
+  color: #dedede;
+}
+
+/* ------- End of MenuBar Styling------------- */
+
+
+
+.menuBar1 ul {
+  width: 100%;
+  max-height: 50px;
+  overflow: hidden;
+  text-align: center;
+  list-style-type: none;
+  margin: 0;
+  box-align: center;
+  padding: 0;
+  background-color: #dedede;
+  border: 1px solid #003366;
+  overflow: auto;
+  white-space: nowrap;
+  overflow-y: none;
+}
+
+.menuBar1 li {
+  float: left;
+  list-style-type: none;
+}
+
+.menuBar1 li a {
+  display: inline-block;
+  color: #003366;
+  background-color: #dedede;
+  font-weight: bold;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.menuBar1 li a:hover {
+  background-color: #003366;
+  color: #dedede;
+}
+
+
+
+
+
+
+h1 {
+  text-align: center;
+  color: #003366;
+}
+
+h2 {
+  color: #003366;
+}
+
+td,
+th {
+  border: 0.5px solid black;
+  text-align: center;
+  padding: 5px;
+}
+
+table {
+  font-family: Open Sans;
+  border-collapse: collapse;
+  border-color: #dddddd;
+  width: 100%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 30px
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+pre {
+  border-radius: 4px;
+  min-width: 55px;
+  max-height: 350px;
+  background: none repeat scroll 0 0 transparent;
+  border: 1px solid #bbb;
+  color: #003366;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 1.42rem;
+  margin: 1em 0;
+  padding: 0px 5px;
+  text-align: left;
+  text-decoration: none;
+  text-indent: 0;
+  overflow: auto;
+  overflow-y: none;
+  background: #dedede;
+  top: 0;
+  left: 0;
+}
+
+textarea {
+  position: absolute;
+  left: -100%;
+}
+
+
+/*---------------------------------------*/
+
+.btn {
+  -moz-box-shadow: inset 0px 1px 0px 0px #ffffff;
+  -webkit-box-shadow: inset 0px 1px 0px 0px #ffffff;
+  box-shadow: inset 0px 1px 0px 0px #ffffff;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ededed), color-stop(1, #dfdfdf));
+  background: -moz-linear-gradient(top, #ededed 5%, #dfdfdf 100%);
+  background: -webkit-linear-gradient(top, #ededed 5%, #dfdfdf 100%);
+  background: -o-linear-gradient(top, #ededed 5%, #dfdfdf 100%);
+  background: -ms-linear-gradient(top, #ededed 5%, #dfdfdf 100%);
+  background: linear-gradient(to bottom, #ededed 5%, #dfdfdf 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#dfdfdf', GradientType=0);
+  background-color: #ededed;
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+  border-radius: 6px;
+  border: 1px solid #5d5d5d;
+  display: inline-block;
+  cursor: pointer;
+  color: #5d5d5d;
+  font-family: Arial;
+  font-size: 15px;
+  font-weight: bold;
+  padding: 6px 24px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #ffffff;
+}
+
+.btn:hover {
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #dfdfdf), color-stop(1, #ededed));
+  background: -moz-linear-gradient(top, #dfdfdf 5%, #ededed 100%);
+  background: -webkit-linear-gradient(top, #dfdfdf 5%, #ededed 100%);
+  background: -o-linear-gradient(top, #dfdfdf 5%, #ededed 100%);
+  background: -ms-linear-gradient(top, #dfdfdf 5%, #ededed 100%);
+  background: linear-gradient(to bottom, #dfdfdf 5%, #ededed 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#dfdfdf', endColorstr='#ededed', GradientType=0);
+  background-color: #dfdfdf;
+}
