@@ -4,7 +4,7 @@
 # Your Company - New Relic Handbook
 
 ## Support
-By now you have probably set up your New Relic account, and you may even have data reporting already, which is awesome! If not, or if you run into any issues along the way, that's OK too. Below are some available resourses for you to get help.
+By now you have probably set up your New Relic account, and you may even have data reporting already, which is awesome! If not, or if you run into any issues along the way, that's OK too. Below are some available resources for you to get help.
 
 1. Reach out in _#new-relic-admins_ if you have questions about anything in this handbook.
 2. For continuous learning with New Relic, sign up for an account & some courses in the [New Relic University](https://learn.newrelic.com/)
