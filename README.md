@@ -10,7 +10,7 @@ _For Example; in our Support team we occasionally see requests for deleting pers
 
 ## Usage
 How you use the handbook is up to you. We provide this as a pre-built template, however your New Relic account usage is likely different to the next person to read this. So we encourage you to build on this handbook, add sections that suit your usage. 
-For example; If you’re heavy Synthetics users for example, you may add a section on Synthetics Permissions and Secure Credentials.
+For example; If you're heavy Synthetics users for example, you may add a section on Synthetics Permissions and Secure Credentials.
 
 Since we provide HTML & Markdown, you have a couple of options, but you are free to copy this into your preferred delivery method.
 

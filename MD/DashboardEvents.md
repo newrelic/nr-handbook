@@ -218,7 +218,7 @@ Below are some prebuilt dashboards - built and provided by New Relic. Feel free 
         ],
         "presentation": {
           "title": "Average Duration",
-          "notes": "Average duration of each monitor’s Synthetic checks over the last month."
+          "notes": "Average duration of each monitor's Synthetic checks over the last month."
         }
       },
       {

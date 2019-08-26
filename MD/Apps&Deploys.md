@@ -26,7 +26,7 @@ With labels like this, you can both filter to the applications that matter to yo
 ---
 
 ## Agent Configuration
-Please ensure the following attibutes are set appropriately in your agent configuration file. NOTE: The Syntax below is accurate for the Java APM agent, please be sure to follow the [appropriate syntax](https://docs.newrelic.com/docs/agents/manage-apm-agents/configuration/configure-agent#agent-config) if you utilise a different language agent.
+Please ensure the following attributes are set appropriately in your agent configuration file. NOTE: The Syntax below is accurate for the Java APM agent, please be sure to follow the [appropriate syntax](https://docs.newrelic.com/docs/agents/manage-apm-agents/configuration/configure-agent#agent-config) if you utilise a different language agent.
 
 * `app_name = My Application`
 * `license_key = 'xxxxxxxxxxxx'`
@@ -48,7 +48,7 @@ SELECT apmAppName, apmAppId, apmLanguage, apmAgentVersion FROM NrDailyUsage WHER
 ---
 
 ## Deployment Markers
-Deployment Markers are crucial to understanding the performance impact your deployments have. You are required to include a detailed Changelog/Decription
+Deployment Markers are crucial to understanding the performance impact your deployments have. You are required to include a detailed Changelog/Description
 
 * [New Relic Docs for Recording Deployments.](https://docs.newrelic.com/docs/apm/new-relic-apm/maintenance/record-deployments)
 

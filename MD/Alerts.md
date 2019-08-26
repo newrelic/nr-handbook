@@ -50,14 +50,14 @@ Based on the metrics you are alerting on, it is recommended that you set your ow
 
 * Monitored by Synthetics. We strive for 99% uptime. The below insights query can show you yours based on a Synthetics Monitor
 ```sql
-SELECT percentage(count(*), WHERE result = 'SUCCESS') FROM SyntheticCheck WHERE monitorName = 'myMonitor'SINCE 1 DAY AGO
+SELECT percentage(count(*), WHERE result = 'SUCCESS') FROM SyntheticCheck WHERE monitorName = 'myMonitor' SINCE 1 DAY AGO
 ```
 
 **Response Time**
 
  * Monitored by APM. The below Insights Query can also help with average Transaction response times for a given app.
  ```sql
-SELECT average(duration)FROM Transaction WHERE appName = 'myAppName'SINCE 1 DAY AGO
+SELECT average(duration)FROM Transaction WHERE appName = 'myAppName' SINCE 1 DAY AGO
 ```
 
 **Error Rate**
@@ -65,7 +65,7 @@ SELECT average(duration)FROM Transaction WHERE appName = 'myAppName'SINCE 1 DAY 
 
 These are the basic defaults Your Company recommends you use. That said, we recommend you add more metrics depending on the applications you are monitoring. For example, Storefront applications should send attributes mapping to revenue generation & potential for lost revenue.
 
-For example, errors occuring on purchase pages can represent potential lost revenue. You should also utilise funnel queries to view cases where the shopping cart page was abandoned prior to purchase.
+For example, errors occurring on purchase pages can represent potential lost revenue. You should also utilise funnel queries to view cases where the shopping cart page was abandoned prior to purchase.
 
 ---
 
