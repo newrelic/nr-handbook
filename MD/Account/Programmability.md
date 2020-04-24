@@ -37,6 +37,13 @@ Status Page (which lets you define multiple status pages of tools you rely on to
 Browser Analyser (breakdown your frontend data into Apdex groupings and analyse Bounce Rate impact of slower pages)
 Groundskeeper (quickly identify old APM agents in your infrastructure). 
 
+## But I'm Not That Technical. I don't enjoy command lines - Enter Application Catalog
+Not everyone is a command line and SDK hero and New Relic recognises that. That's why we recently launched our Application Catalog. A collection of amazing open source application you can quickly and easily deploy to your account and gain value from without any specific technical knowledge.
+
+Simply open the Application Catalog. Choose a provide app tile and click in for more information about what it could do for you. Once you know what one you would like to add. Simple click **Add This App** button top right of the app detail and then you can choose the accounts you are named on which you would like to add them to. SO SIMPLE.
+
+**You Require the Nerdpack Manager Role to Add Nerdpacks to your account**
+
 ## How Do I Learn More?
 
 New Relic has launched developer.newrelic.com with additional information and resources around building these apps on New Relic. 

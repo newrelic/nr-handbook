@@ -47,7 +47,20 @@ One example of this may be when your system goes down and alerts fire, you can u
 
 Webhooks can be configured to point to any URL and even perform basic authentication and custom payload posting. To set up and manage webhooks, add them as a notification channel from New Relic Alerts. Webhooks are a useful way to utilise trigger event from New Relic alert tool to set a payload to a known tool or service which in turn can parse and take an action based on this. 
 
-## CLI
+## CLI & SDK
+New Relic has recently launched a CLI tool to help with automation of your interactions with your New Relic account. We also announced the [Developer Toolkit](https://newrelic.github.io/developer-toolkit/roadmap/), a collection of New Relic-supported orchestration tools, including Terraform, AWS CloudFormation, and a cross-product command-line interface. These tools enable you to integrate New Relic into your existing workflows, easing adoption, accelerating deployment, and returning focus to your core business. 
+
+**New Relic Terraform Provider**: Enables Observability as Code, reduces developer toil, and allows users to manage their entire ecosystem in a single place.
+**New Relic Client**: Provides the building blocks for many tools in the toolkit, enabling quick access to the suite of New Relic APIs. As a library, it can also be leveraged within your own custom applications.
+**New Relic CLI**: Enables integration of New Relic into your existing workflows. Be it fetching data from your laptop while troubleshooting an issue, or adding New Relic into your CI/CD pipeline.
+**New Relic AWS CloudFormation Integration**: Enables developers using CloudFormation to provision a subset of New Relic resources easily.
+
+Watch a handy video on the New Relic CLI - https://www.youtube.com/watch?v=g00AeKlECZA
+
+https://blog.newrelic.com/product-news/new-programmability-features/
+https://github.com/newrelic/newrelic-cli
+
+
 One of New Relic's customers IBM, open sourced a CLI they built and made it available via their [GitHub](https://github.com/IBM/newrelic-cli) - Using this CLI you can Create/Edit/Delete Synthetics Monitors, Backup and Restore Synthetics Monitors, Create Edit and Delete Alert Conditions / Alert Policies / Notification Channels and Backup and Restore Alert Policies and Conditions. You can also Get Dashboard, Back Up Dashboard and Restore them. Finally you can list Users on your account.
 
 https://blog.newrelic.com/engineering/new-relic-cli-ibm/

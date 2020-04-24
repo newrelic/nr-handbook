@@ -11,8 +11,9 @@
 Our current naming convention is "[team name] - [service name] - [environment]". Some teams also use braces for the environment instead of the last dash. Some examples: 
 
 ```shell
-myservices - audio-streaming - p-fra
-myportal - core (p-aws)
+myapplication - frontend - aws-dublin
+myapplication - frontend - aws-us-east
+myhub - loginservice -  aws-us-east
 ```
 
 Note that the full name should stay below 42 characters or otherwise it will be cut off in the New Relic web UI.
@@ -20,16 +21,16 @@ In order to aggregate multiple entries (i.e. for being able to display statistic
 Defining two applications with 
 
 ```shell
-myservices - service-vehicle - p-fra;myservices - service-vehicle - p-aws
-myservices - service-vehicle - p-icn;myservices - service-vehicle - p-aws
+myapplication - frontend - aws-all;myapplication - frontend - aws-dublin
+myapplication - frontend - aws-all;myapplication - frontend - aws-us-east
 ```
 
 will create the following three entries in New Relic: 
 
 ```shell
-myservices - service-vehicle - p-fra
-myservices - service-vehicle - p-icn
-myservices - service-vehicle - p-aws (aggregation of the previous two applications)
+myapplication - frontend - aws-dublin
+myapplication - frontend - aws-us-east
+myapplication - frontend - aws-all (aggregation of the previous two applications)
 ```
 
 ## Labels -
@@ -70,6 +71,15 @@ Some config parameters specifically worth looking at are:
 look at the [transaction naming protocol](https://docs.newrelic.com/docs/agents/java-agent/instrumentation/transaction-naming-protocol).
 
 ---
+
+## Distributed Tracing
+While you are in the process of deciding how to configure your New Relic APM Agent. It is worth considering as you roll this out, turning on Distributed Tracing for all your services. This will ensure that if you have a distributed type of architecture with several applications talking to each other, New Relic will be able to trace requests from service to service.
+
+More details on Distributed Tracing and the powerful visual it provides in troubleshooting distributed systems can be found here -> [Intro To Distributed Tracing](https://docs.newrelic.com/docs/understand-dependencies/distributed-tracing/get-started/introduction-distributed-tracing)
+
+[Steps to Enable per APM Agent](https://docs.newrelic.com/docs/understand-dependencies/distributed-tracing/enable-configure/enable-distributed-tracing)
+
+[Steps to Enable for New Relic Browser](https://docs.newrelic.com/docs/browser/new-relic-browser/browser-pro-features/browser-data-distributed-tracing)
 
 ## Keep your applications up to date
 Please keep your application agents up to date. New Relic regularly releases new features and bug fixes through new agent versions. You can verify your APM agent versions with this NRQL query:
@@ -183,12 +193,6 @@ So degraded performance over your Apdex T and transactions with errors will mean
 **How to setup a SLA reporting per external Service?**
 
 Best practice for SLA reporting on external services is to set-up a Synthetic monitor for each external service. SLA report per monitor/external service will then be available OOTB in Synthetics
-
-**How to determine end users?**
-
-Out of the Box, New Relic does not collect and store any PII and thus cannot simply determine end users. In Browser we capture the Session ID along with a Trip ID (in APM) that allows us to implement a cross application tracing (CAT). In more recent New Relic agents, we use a Distributed Tracing Payload to create Distributed Tracing functionality. This will mean across each transaction there will be a unique traceID. However this is not identifying users only correlating impact across multiple services.
-
-Using custom parameters, you could add some user specific information to any transaction that you could then use to determine end users. However, data protection constraints may apply. It may be wiser to send something not specific to the end user (like a username or email) and choose to send something you can use internally to identify that end user (perhaps a userID).
  
 **What is the utilization overhead due to monitoring, due to different configuration?**
 
