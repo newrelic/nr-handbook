@@ -6,7 +6,7 @@ As your digital business grows, your New Relic usage will likely grow with it. O
 
 This handbook comes from you, and we hope will be built on by you. The information included in the initial version is built by our (New Relic Technical Support) experiences in helping customers in their issues, be them related to Account access , Alert configurations, or Applications and deployments related. 
 
-_For Example; in our Support team we occasionally see requests for deleting personal accounts from a corporate master account. Specifically where a user at a company wanted to monitor their personal projects, so they added a sub-account to the company parent account. This can boost the company spend at NR by over-consuming the contracted usage limits._
+_For Example; in our Support team we occasionally see requests for deleting personal accounts from a corporate master account. Specifically where a user at a company wanted to monitor their personal projects, so they added a sub-account to the company parent account._
 
 ## Usage
 How you use the handbook is up to you. We provide this as a pre-built template, however your New Relic account usage is likely different to the next person to read this. So we encourage you to build on this handbook, add sections that suit your usage. 
