@@ -7,8 +7,7 @@
 # New Relic APM Best Practices
 
 ## Application Naming Schema
-
-Our current naming convention is "[team name] - [service name] - [environment]". Some teams also use braces for the environment instead of the last dash. Some examples: 
+Having a naming convention can add clarity in responsibility, geographical location, or purpose. Here is an example of a possible naming convention: "[team name] - [service name] - [environment]". Some teams also use braces for the environment instead of the last dash. Some examples: 
 
 ```shell
 myapplication - frontend - aws-dublin
@@ -17,7 +16,7 @@ myhub - loginservice -  aws-us-east
 ```
 
 Note that the full name should stay below 42 characters or otherwise it will be cut off in the New Relic web UI.
-In order to aggregate multiple entries (i.e. for being able to display statistics for regions separately but also for all regions application) you can define multiple name with a semicolon as the separator. Example:
+In order to aggregate multiple entries (i.e. for being able to display statistics for regions separately but also for all regions application) you can define multiple name with a semicolon as the separator. Please keep in mind that a name duplication or triplication will have an impact on ingested data volume. Example:
 Defining two applications with 
 
 ```shell
@@ -33,21 +32,24 @@ myapplication - frontend - aws-us-east
 myapplication - frontend - aws-all (aggregation of the previous two applications)
 ```
 
-## Labels -
-Labels add an additional layer of searchability within New Relic. Ensure you utilise appropriate labels for your applications, specifically with regard to Region, and Environment. Examples below.
+---
 
-> _Environment:Production_
+## Tags / Labels
+Tags or labels add an additional layer of searchability within New Relic. Ensure you utilise appropriate tags for your applications, specifically with regard to Region, and Environment. Examples below.
 
-> _Region:EU_
+> _Environment: Production_
 
-With labels like this, you can both filter to the applications that matter to you in the index page, and you can also bulk target alerts by label, to capture your entire environment with the same conditions. The alerts configured using labels as the targeted approach will also be dynamic. This means if a new services reports in tagged with a tag that matches something targeted with an alert, it will automatically be added to that alert condition.
+> _Region: EU_
 
-You can add Labels in 3 ways
+With tags like this, you can both filter to the applications that matter to you in the index page, and you can also bulk target alerts by tag, to capture your entire environment with the same conditions. The alerts configured using tags as the targeted approach will also be dynamic. This means if a new services reports in tagged with a tag that matches something targeted with an alert, it will automatically be added to that alert condition.
+
+You can add Tags in 4 ways
 1. [THE APM UI](https://docs.newrelic.com/docs/using-new-relic/user-interface-functions/organize-your-data/labels-categories-organize-apps-monitors)
-2. [The REST API](api.newrelic.com)
-3. [APM Agent Configuration File](https://docs.newrelic.com/docs/using-new-relic/user-interface-functions/organize-your-data/labels-categories-organize-apps-monitors)
+2. [The Tagging API](https://docs.newrelic.com/docs/apis/nerdgraph/examples/nerdgraph-tagging-api-tutorial)
+3. [The REST API](api.newrelic.com)
+4. [APM Agent Configuration File](https://docs.newrelic.com/docs/using-new-relic/user-interface-functions/organize-your-data/labels-categories-organize-apps-monitors)
 
-Labeling should be a habit for each new service or application reporting in. 
+Tagging should be a habit for each new service or application reporting in. 
 
 ---
 
@@ -57,8 +59,9 @@ Please ensure the following attributes are set appropriately in your agent confi
 The absolute minimum is setting `app_name` and `license_key` - Everything else will fall to a sane default. 
 
 * `app_name = My Application`
-* `license_key = 'xxxxxxxxxxxx'`
-* `high_security: false`
+* `license_key = xxxxxxxxxxxx`
+* `distributed_tracing:
+       enabled: true`
 * `enable_auto_transaction_naming: true`
 * `record_sql: obfuscated`
 
@@ -69,6 +72,8 @@ Some config parameters specifically worth looking at are:
 
 * `enable_auto_transaction_naming:` typically, the default app and transaction naming algorithm is pretty accurate. However, sometimes it is worth looking at this if for instance all transactions are accumulated under a central controller-type transaction (single entry point into your application). In this case it might make sense to disable this option and
 look at the [transaction naming protocol](https://docs.newrelic.com/docs/agents/java-agent/instrumentation/transaction-naming-protocol).
+
+* `distributed_tracing:` distributed tracing lets you see the path that a request takes as it travels through a distributed system. This is particularly interesting for micro service architectures that consist of a large number of services that are difficult to udnerstand in an isolated view.
 
 ---
 
@@ -81,12 +86,24 @@ More details on Distributed Tracing and the powerful visual it provides in troub
 
 [Steps to Enable for New Relic Browser](https://docs.newrelic.com/docs/browser/new-relic-browser/browser-pro-features/browser-data-distributed-tracing)
 
+Here's an an examplary overview of a distributed trace in a demo environment of New Relic:
+
+![Distributed Tracing](../IMG/distributedTracing.png)
+
+---
+
 ## Keep your applications up to date
 Please keep your application agents up to date. New Relic regularly releases new features and bug fixes through new agent versions. You can verify your APM agent versions with this NRQL query:
 
 ```sql
-SELECT apmAppName, apmAppId, apmLanguage, apmAgentVersion FROM NrDailyUsage WHERE productLine = 'APM' AND usageType = 'Application' SINCE 1 day AGO
+SELECT latest(apmAppId), latest(apmLanguage), latest(apmAgentVersion) FROM NrDailyUsage WHERE productLine = 'APM' AND usageType = 'Application' SINCE 1 day AGO  FACET apmAppName LIMIT MAX
 ```
+
+You can easily spot agent version drifts in your current rollout:
+
+![Agent Update](../IMG/agentUpdate.png)
+
+Alternatively, you can add a `Nerdpack` - a UI extension written in React - that offers a better graphical overview as well as capabilities around keeping your New Relic agents up to date: [Groundskeeper](https://one.nr/0nVjYD7YNR0)
 
 ---
 
@@ -97,9 +114,17 @@ Deployment Markers are crucial to understanding the performance impact your depl
 
 Another option for extra information if working to configure deployment markers using post deployment hooks, you can also add a similar call for extra deployment that your tool processes and success or fail, send data to New Relic insights as a custom event and this will allow you to take in key information about how often you have successful deploys, when it fails what the reasons for failure were and help you optimise these processes. 
 
-Jenkins Example Plugin : https://wiki.jenkins.io/display/JENKINS/New+Relic+Insights+Plugin
+Jenkins Deployment Notifier: https://plugins.jenkins.io/newrelic-deployment-notifier/
 
-Send Custom Event Data to Insights : https://docs.newrelic.com/docs/insights/insights-data-sources/custom-data/send-custom-events-event-api
+Jenkins Example Plugin: https://wiki.jenkins.io/display/JENKINS/New+Relic+Insights+Plugin
+
+Send Custom Event Data to Insights: https://docs.newrelic.com/docs/insights/insights-data-sources/custom-data/send-custom-events-event-api
+
+In the `Deployments` section in `APM` you will get an overview of performance changes of your past deployed versions. Here's an an examplary overview of an application in the demo environment of New Relic:
+
+![Deployments](../IMG/deployments.png)
+
+Sending Deployment Markers will also grant access to the [Deployment Analyzer](https://one.nr/0eqwyDAx1Qn) `Nerdpack` which gives you a more graphical overview of your performance changes and for more than a single application.
 
 ---
 
@@ -108,7 +133,7 @@ Basic New Relic APM Monitoring is great, however if you need to track the perfor
 
 * [New Relic Docs for Key Transactions](https://docs.newrelic.com/docs/apm/transactions/key-transactions/introduction-key-transactions)
 
-Key transactions are grouped together in the New Relic UI, so they are easy to find and examine. Regardless of which application they are reporting from. 
+Key transactions are grouped together in the [New Relic UI](https://one.nr/06vjAoLBzwP), so they are easy to find and examine. Regardless of which application they are reporting from. 
 
 You can set a custom Apdex threshold for a key transaction. The benefit of this is that if the transaction is slower than a normal performance for your application (perhaps doing heavy lifting and expected to perform slower), the custom apdex will ensure this transaction being naturally slow doesn't impact your Apdex score. 
 
@@ -119,42 +144,75 @@ You can set an alert policy for a key transaction. Typically each application ha
 
 Adding key transactions should be balanced so that you don’t have too few (probably not meaningful enough data) or too many (information overload).
 
+---
 
-## Create Custom Attributes
+## Create Custom Transaction Attributes / Custom Span Attributes / Custom Events
 New Relic APM agents provide API functions to utilise within your codebase to better control your monitoring. As such we also allow you to tag on additional information at runtime to enhance the data reported to New Relic. 
 
-This will allow you to tag information that may be important when troubleshooting onto the transaction as it's happening. You could tag ecommerce cart data, dynamically or manually entered values, something only known at runtime and tag it to the dataset New Relic reports up for that Transaction. 
+An overview of each langague agent's capabilities and functions can be found here: https://docs.newrelic.com/docs/using-new-relic/data/customize-data/collect-custom-attributes
+
+### Custom Transaction Attributes
+This will allow you to tag information that may be important when troubleshooting onto the transaction as it's happening. You could tag ecommerce cart data, dynamically or manually entered values, the ID of a store or terminal, something only known at runtime and tag it to the dataset New Relic reports up for that Transaction. 
 
 This will then be something you can use to filter your data or add context to something in features like
-Error Analytics and Traces
-Transaction Traces
-Insights Event Data (Every APM Request is 1 Transaction, every transaction sends key/value pair data as a row in an event table, custom attributes tags this information to that data, making it useful when building dashboards).
+* `Error Analytics and Traces`
+* `Transaction Traces`
+* `Insights Event Data` (Every APM Request is 1 Transaction, every transaction sends key/value pair data as a row in an event table, custom attributes tags this information to that data, making it useful when building dashboards).
 
-[Java Agent - NewRelic.addCustomParameter();](https://docs.newrelic.com/docs/agents/manage-apm-agents/agent-data/collect-custom-attributes#java-att)
+This can be achieved by using the Java agent's `NewRelic.addCustomParameter();` functionality:
 
 ```java
   const service = 'carcontrol';
-  // set it as a custom attribute delivered to New Relic
+  // set it as a custom Transaction attribute delivered to New Relic
   NewRelic.addCustomParameter("service", service);
 ```
 
-## Create and evaluate alert policies
+### Custom Span Attributes
+It may be required that you record more than a single custom value of the same kind (e.g. when looping through an Array) and a single value for the above `service` is not enough. In these cases, you can add an individual custom value to `service` to each Span instead of only one for an entire Transaction.
 
+This can be achieved by using the Java agent's `NewRelic.getAgent().getTracedMethod().addCustomAttribute();` functionality:
+
+```java
+  const service = 'carcontrol';
+  // set it as a custom Span attribute delivered to New Relic
+  NewRelic.getAgent().getTracedMethod().addCustomAttribute("service", service);
+```
+
+### Custom Events
+At times, appending business relevant information to pre-existing functional data may not be the right way to go and you prefer writing dedicated `Events` into New Relic's database.
+
+There are a [few ways](https://docs.newrelic.com/docs/insights/event-data-sources/custom-events) how you can report custom Events but we'll focus on the option available with the APM agent. An overview on language agent specific methods can be found here: https://docs.newrelic.com/docs/insights/event-data-sources/custom-events/apm-report-custom-events
+
+This can be achieved by using the Java agent's `NewRelic.getAgent().getInsights().recordCustomEvent();` functionality:
+
+```java
+  Map<String, Object> eventAttributes = new HashMap<String, Object>();
+  // set it as a custom Event delivered to New Relic
+  NewRelic.getAgent().getInsights().recordCustomEvent("MyCustomEvent", eventAttributes);
+```
+
+---
+
+## Create and evaluate alert policies
 Alerting is critical to ensure you are not reactive to issues and move into being pro-active in knowing about and solving issues in your applications.
 
 Alert Policies should be created with WHO will be notified in mind. If a particular team is responsible for a group of services. A policy should be created with these team members as notification channels, perhaps use their team Slack channel or any incident management software for escalating alerts.
 
 Conditions targeting each application should cover some basic KPI's. 
-* Response Time
-* Throughput
-* Error Rate
+* `Response Time`
+* `Throughput`
+* `Error Rate`
 
 Alerts on Response Time or Throughput could potentially make use of New Relic's Baseline alert type which evaluates current data versus what is typical for this metric at this time of day on this day of week. Making these metrics candidates for [baseline alerting](https://docs.newrelic.com/docs/alerts/new-relic-alerts/defining-conditions/create-baseline-alert-conditions). 
 
 It may also be worth alerting on JMX metric to ensure full awareness of performance in your JVMs especially if you've configured additional JMX instrumentation.
 
+Alert policies, conditions, and channels can also be managed using a configuration management solution such as Terraform for which New Relic exists as a provider: https://registry.terraform.io/providers/newrelic/newrelic/latest/docs
+
+---
+
 ## Additional Best Practices
-Start troubleshooting errors using error analytics
+see also: https://docs.newrelic.com/docs/apm/new-relic-apm/guides/new-relic-apm-best-practices-guide
 
 * Leverage New Relic’s reporting capabilities
   - Scalability Reports help understand app performance, database performance and CPU usage as requests scale up.
@@ -170,16 +228,17 @@ Start troubleshooting errors using error analytics
   - RBAC allows you control access for each user on your account
   - SSO helps simplify creation of accounts linking with your AUTH provider.
 
-see: https://docs.newrelic.com/docs/apm/new-relic-apm/guides/new-relic-apm-best-practices-guide
+* Improve Transaction reporting
+  - Setting an appropriate Apdex T value for each application has a functional impact, in the sense that in influences for which Transaction we collect high level metrics or deep analysis of the entire transaction chain. To reduce the time required to find appropriate Apdex T values for each application, you can leverage our `Nerdpack` [Apdex Optimizer](https://github.com/newrelic/nr1-apdex-optimizer).
 
+---
 
 # Questions And Answers
-
 **How to collect details about the external service?**
 
 All New Relic agents collect information about external service calls. If you are not seeing these calls you can potentially use an Agent API function to instrument it as an external call. New Relic will automatically try to create a link between the service making the call and the service receiving and processing the call if both are monitored in New Relic. This will manifest in links in the UI in trace details and also as part of the Distributed Tracing view.
 
-**How to determine a Apdex score (Apdex T)**
+**Why should you care about Apdex score (Apdex T)?**
 
 Whether you are setting an Apdex for your overall Application or an Apdex for your Key Transactions, you should consider two things when determining what to set your Apdex T.
 
@@ -202,15 +261,13 @@ In the Java agent, if your application is looking like resource exhaustion. It w
 
 https://docs.newrelic.com/docs/agents/java-agent/custom-instrumentation/circuit-breaker-java-custom-instrumentation
 
-https://docs.newrelic.com/docs/infrastructure/new-relic-infrastructure/getting-started/infrastructure-agent-performance-overhead
-
 It is worth noting that monitoring is work, and as developers you know the more work a script has to do, the long it will take. As such monitoring is no different and the laws of physics still apply. If a transaction has thousands of database or external calls and each have to be timed. Even a very fast call to time a method (perhaps this timing call takes 0.0001 seconds) will start to create an overhead if it has to be called 10,000 times (potentially a 1 second overhead in this 10,000 methods to time example). 
 
 The point being, instrument and time what you need, not everything. If you find gaps, instrument them as required and this will limit the potential impact to almost imperceivable.
 
 **Can we use our own trace id? Any Insight about the trace id?**
 
-Older New Relic agents use a method called cross application tracing ([CAT](https://docs.newrelic.com/docs/apm/transactions/cross-application-traces/introduction-cross-application-traces)) in order to link transactions between APM apps.
+Older New Relic agents use a method called Cross Application Tracing ([CAT](https://docs.newrelic.com/docs/apm/transactions/cross-application-traces/introduction-cross-application-traces)) in order to link transactions between APM apps.
 
 Recent New Relic agents generate a Distributed Tracing payload and pass this from service to service in order to built a picture of a Trace through a Distributed system. This has a TraceID contained within.
 
